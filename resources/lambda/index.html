@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>LAMBDA</title>
+	<meta name="description" content="the right ingredients for the right food">
+	<meta name="keywords" content="lambda, right food, right ingredients, book a table, finest quality">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="shortcut icon" href="images/favicon.png" type="image/png">
+	<link rel="stylesheet" type="text/css" href ="css/style.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/media.css">
+</head>
+<body>
+	<header>
+		<div class="header__wrapper">
+			<a class="logo" href="index.html">
+				<img src="images/logo.png" alt="logo">
+			</a>
+			<nav>
+				<ul>
+					<li>
+						<a class="navigation__home" href="#promo">Home</a>
+					</li>
+					<li>
+						<a class="navigation__about" href="#about">About</a>
+					</li>
+					<li>
+						<a class="navigation__ingredients" href="#ingredients">Ingredients</a>
+					</li>
+					<li>
+						<a class="navigation__menu" href="#menu">Menu</a>
+					</li>
+					<li>
+						<a class="navigation__reviews" href="#reviews">Reviews</a>
+					</li>
+					<li>
+						<a class="navigation__reservations" href="#reservations">Reservations</a>
+					</li>					
+				</ul>
+			</nav>
+			<div class="social">
+				<a class="social__twitter" href=""><img src="images/twitter.png" alt="twitter"></a>
+				<a class="social__youtube" href=""><img src="images/youtube.png" alt="youtube"></a>
+				<a class="social__facebook" href=""><img src="images/facebook.png" alt="facebook"></a>
+			</div>
+			<div id="hamburger-menu" class="hamburger-menu">
+				<input id="menu__toggle" type="checkbox" />
+				<label class="menu__btn" for="menu__toggle">
+					<span></span>
+				</label>
+				<ul id="menu_box" class="menu__box">
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#promo">Home</a>
+					</li>
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#about">About</a>
+					</li>
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#ingredients">Ingredients</a>
+					</li>
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#menu">Menu</a>
+					</li>
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#reviews">Reviews</a>
+					</li>
+					<li>
+						<a class="menu__item" onclick="changeMenuBox()" href="#reservations">Reservations</a>
+					</li>
+					<li>
+						<ul class="menu__social">
+							<li class="menu__social__twitter">
+								<a class="twitter" href=""><img src="images/twitter.png" alt="twitter"></a>
+							</li>
+							<li class="menu__social__youtube">
+								<a class="youtube" href=""><img src="images/youtube.png" alt="youtube"></a>
+							</li>
+							<li class="menu__social__facebook">
+								<a class="facebook" href=""><img src="images/facebook.png" alt="facebook"></a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section id="promo" class="promo">
+		<div class ="wrapper">
+			<div class="promo__text"> 
+				<h1>The right ingredients for the right food</h1>
+				<div class="promo__text__divider"> 
+					<img src="images/decoration.png" alt="divider">
+				</div>
+			</div>
+			<div class="promo__buttons">
+				<button class="promo__buttons__button" onclick="document.location='#reservations'">BOOK A TABLE</button>
+				<button class="promo__buttons__button" onclick="document.location='#menu'">SEE THE MENU</button>
+			</div>
+		</div>	
+	</section>
+	<section id="about" class="about" >
+		<div class ="wrapper">
+			<div class="about__text">
+				<h2>Just the right food</h2>
+				<img class="about__text__divider" src="images/divider.png" alt="divider">
+				<p>If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!</p>
+				<img class="about__text__cook" src="images/cook.png" alt="cook">
+			</div>
+			<div class="about__image">
+				<img class="about__image__dish" src="images/dish.png" alt="dish">
+			</div>
+		</div>
+	</section>
+	<section id ="ingredients" class="ingredients">
+		<div class ="wrapper">
+			<div class="ingredients__block">
+				<div class="ingredients__block__text">
+					<h2>Fine ingredients</h2>
+					<img class="ingredients__block__text__divider" src="images/divider2.png" alt="divider">
+					<p>If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food, delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out!</p>
+				</div>
+				<div class="ingredients__block__images">
+					<img src="images/wheat.png" alt="wheat">
+					<img src="images/dish2.png" alt="dish">
+					<img src="images/loaf.png" alt="loaf">
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="menu" class="menu">
+		<div class ="wrapper">
+			<div class="menu__appetisers">
+				<div class="menu__appetisers__head">
+					<h2>Appetisers</h2>
+					<img class="menu__appetisers__head__divider" src="images/divider3.png" alt="divider">
+				</div>
+				<div class="menu__appetisers__dish">
+					<h3 class="menu__appetisers__dish__name small_price">
+						Tzatsiki
+					</h3>
+					<p class="menu__appetisers__dish__ingredients">
+						Refreshing traditional cucumber and garlic yoghurt dip.
+					</p> 
+				</div>
+				<div class="menu__appetisers__dish">
+					<h3 class="menu__appetisers__dish__name upper_medium_price">
+						Aubergine Salad
+					</h3>
+					<p class="menu__appetisers__dish__ingredients">
+						Pureed eggplant, garlic, green pepper and tomato dip.
+					</p> 
+				</div>
+				<div class="menu__appetisers__dish">
+					<h3 class="menu__appetisers__dish__name under_medium_price">
+						Jalapeno Poppers
+					</h3>
+					<p class="menu__appetisers__dish__ingredients">
+						Jalapeno peppers, cream cheese, garlic, cheddar. 
+					</p> 
+				</div>
+			</div>
+			<div class="menu__salads">
+				<div class="menu__salads__head">
+					<h2>Salads</h2>
+					<img class="menu__appetisers__salads__divider" src="images/divider3.png" alt="divider">
+				</div>
+				<div class="menu__salads__dish">
+					<h3 class="menu__salads__dish__name high_price">
+						Olive Special
+					</h3>
+					<p class="menu__salads__dish__ingredients">
+						Olive oil, red wine, garlic, oregano, sliced green onion, parsley, pepper.
+					</p> 
+				</div>
+				<div class="menu__salads__dish special">
+					<h3 class="menu__salads__dish__name upper_medium_price">
+						Greek Salad
+					</h3>
+					<p class="menu__salads__dish__ingredients">
+						Tomatoes, cucumber, red onion, olives, oregano, feta cheese.
+					</p> 
+				</div>
+				<div class="menu__salads__dish">
+					<h3 class="menu__salads__dish__name under_medium_price">
+						Gusto Salad
+					</h3>
+					<p class="menu__salads__dish__ingredients">
+						Arugula, mint, watermelon, roasted beet, feta cheese, olives, garlic.
+					</p> 
+				</div>
+			</div>
+			<div class="menu__starters">
+				<div class="menu__starters__head">
+					<h2>Starters</h2>
+					<img class="menu__appetisers__starters__divider" src="images/divider3.png" alt="divider">
+				</div>
+				<div class="menu__starters__dish">
+					<h3 class="menu__starters__dish__name  small_price">
+						Haloumi
+					</h3>
+					<p class="menu__starters__dish__ingredients">
+						Halloumi cheese, tomatoes, black olives, red onion, fresh basil, olive oil, red wine vinegar.
+					</p> 
+				</div>
+				<div class="menu__starters__dish">
+					<h3 class="menu__starters__dish__name upper_medium_price">
+						Spinach Pie
+					</h3>
+					<p class="menu__starters__dish__ingredients">
+						Spinach, feta cheese, onions or spring onions, egg.
+					</p> 
+				</div>
+			</div>
+			<div class="menu__main">
+				<div class="menu__main__head">
+					<h2>Main Dishes</h2>
+					<img class="menu__appetisers__main__divider" src="images/divider3.png" alt="divider">
+				</div>
+				<div class="menu__starters__dish">
+					<h3 class="menu__starters__dish__name high_price">
+						Cornish Mackerel
+					</h3>
+					<p class="menu__starters__dish__ingredients">
+						Cornish mackerel, red chilli, lime, olive oil, coriander, garlic.
+					</p> 
+				</div>
+				<div class="menu__main__dish special">
+					<h3 class="menu__main__dish__name upper_medium_price">
+						Roast Lamb
+					</h3>
+					<p class="menu__main__dish__ingredients">
+						Leg of lamb, olive oil, rosemary leaves, garlic, potatoes.
+					</p> 
+				</div>
+				<div class="menu__main__dish">
+					<h3 class="menu__main__dish__name under_medium_price">
+						Fried Chicken
+					</h3>
+					<p class="menu__main__dish__ingredients">
+						Chicken, flour, garlic, paprika, pepper.
+					</p> 
+				</div>
+				<div class="menu__main__dish">
+					<h3 class="menu__main__dish__name high_price">
+						Pastitsio
+					</h3>
+					<p class="menu__main__dish__ingredients">
+						Ground beef, onion, garlic, tomatoes, red wine.
+					</p> 
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id ="reviews" class="reviews">
+		<div class ="wrapper">
+			<div class="reviews__block">
+				<h2>Guest Reviews</h2>
+				<img src="images/divider4.png" alt="divider">
+				<div id="slides">
+					<div  class="slide showing">
+						<article>
+							<p>Friendly service with excellent presentation of very tasty dishes. The fish main dish had a intricate sauce: fabulous. Great wine list. Book and get there.</p>
+							<cite>- Mike Smith</cite>
+						</article>						
+					</div >
+					<div  class="slide">
+						<article>
+							<p>Had dinner with girl friends. Menu is perfect, something for everyone. Service was awesome and Jason was very accommodating. Will be back definitely!</p>
+							<cite>- John Brown</cite>
+						</article>							
+					</div >
+					<div  class="slide">
+						<article>
+							<p>Although we didn't go into the onsite restaurant, we ordered some food at the bar a few times and it was delicious. The bar area and lobby were nice and open, good place to relax and meet friends.</p>
+							<cite>- Jennifer Davis</cite>
+						</article>								
+					</div >
+					<div  class="slide">
+						<article>
+							<p>The food was fresh, properly prepared and a great value for the price. We highly recommend it. The breakfast buffet on Sunday was equally as good.</p>
+							<cite>- Ashley Simpson</cite>
+						</article>								
+					</div >
+					<div  class="slide">
+						<article>
+							<p>It was beautiful-peaceful and relaxing. Staff was outstanding. The restaurant was exceptional along with the hosts and servers.</p>
+							<cite>- David Wilson</cite>
+						</article>						
+					</div >
+				</div>
+				<div class="controls left" id="previous"></div>
+				<div class="controls right" id="next"></div>
+			</div>
+		</div>
+	</section>
+	<section id="reservations" class="reservations">
+		<div class ="wrapper">
+			<div class="reservations__images">
+				<img class="reservations__images__garnish" src="images/section6_dish1.png" alt="dish 1">
+				<img class="reservations__images__dessert" src="images/section6_dish2.png" alt="dish 2">
+			</div>
+			<div class="reservations__block">
+				<div class="reservations__block__text">
+					<h2>Just the right food</h2>
+					<div class="reservations__block__text__divider"><img src="images/divider5.png" alt="divider"></div>
+					<p>
+						If you’ve been to one of our restaurants, you’ve seen – and tasted – what keeps our customers coming back for more. Perfect materials and freshly baked food.
+					</p>
+					<p>
+						Delicious Lambda cakes,  muffins, and gourmet coffees make us hard to resist! Stop in today and check us out! Perfect materials and freshly baked food.
+					</p>
+				</div>
+				<div class="reservations__block__form">
+					<form action="#" method="post" name="reservation_form">
+						<div>
+							<p><label for="name">Name</label></p>
+							<p><input id="name" class="reservations__block__form__input" type="text" name="name" placeholder="your name *"></p>
+							<p><label for="date">Date</label></p>
+							<p><input id="date" class="reservations__block__form__input" type="datetime-local" name="date"></p>
+						</div>
+						<div>
+							<p><label for="email">E-mail</label></p>	
+							<p><input id="email" class="reservations__block__form__input" type="email" name="email" placeholder="your email *"></p>
+							<p><label for="party_number">Party number</label></p>
+							<p><input id="party_number" class="reservations__block__form__input" name="party_number" list ="party" placeholder="party number"></p>
+							<datalist id="party">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+							</datalist>
+						</div>
+						<p><input class="reservations__block__form__submit" type="submit" name="book" value="Book now!"></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+		<div class ="wrapper">
+			<div class="footer__about">
+				<h3>About Us</h3>
+				<img class="footer__about__divider" src="images/divider6.png" alt="divider">
+				<p>Lambda's new and expanded Chelsea location represents a truly authentic <b>Greek</b> patisserie, featuring breakfasts of fresh croissants and steaming bowls of café.<br>
+				Lamda the best restaurant in town</p>
+			</div>
+			<div class="footer__opening">
+				<h3>Opening Hours</h3>
+				<img class="footer__opening__divider" src="images/divider6.png" alt="divider">
+				<p>
+					<b>Mon-Thu:</b> 7:00am-8:00pm<br>
+					<b>Fri-Sun:</b> 7:00am-10:00pm
+				</p>
+				<img class="footer__opening__cards" src="images/cards.png" alt="cards">
+			</div>
+			<div class="footer__location">
+				<h3>Our Location</h3>
+				<img class="footer__location__divider" src="images/divider6.png" alt="divider">
+				<p>
+					19th Paradise Street Sitia<br>
+					128 Meserole Avenue
+				</p>
+				<p class="footer__location__icons">
+					<a class="footer__location__icons__twitter" href=""><img src="images/twitter.png" alt="twitter"></a>
+					<a class="footer__location__icons__youtube" href=""><img src="images/youtube.png" alt="youtube"></a>
+					<a class="footer__location__icons__facebook" href=""><img src="images/facebook.png" alt="facebook"></a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@font-face{
+	font-family: TuesdayNight;
+	src: url(../fonts/TuesdayNight-Regular.otf);
+}
+
+@font-face {
+  font-family: "Geometria";
+  src: url("../fonts/Geometria.ttf") format("truetype"); 
+}
+
+@font-face {
+  font-family: "GeometriaLight";
+  src: url("../fonts/Geometria-Light.ttf") format("truetype"); 
+}

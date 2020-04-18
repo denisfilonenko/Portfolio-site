@@ -1,0 +1,29 @@
+@font-face{
+	font-family: YesevaOne;
+	src: url(../fonts/YesevaOne-Regular_v2.otf);
+}
+
+@font-face{
+	font-family: LatoRegular;
+	src: url(../fonts/Lato-Regular.ttf);
+}
+
+@font-face{
+	font-family: GentiumBookBasic;
+	src: url(../fonts/GenBkBasB.ttf);
+}
+
+@font-face{
+	font-family: Georgia;
+	src: url(../fonts/Georgia.ttf);
+}
+
+@font-face{
+	font-family: OpenSansBold;
+	src: url(../fonts/OpenSans-Bold.ttf);
+}
+
+@font-face{
+	font-family: OpenSansRegular;
+	src: url(../fonts/OpenSans-Regular.ttf);
+}

@@ -1,0 +1,449 @@
+@media (max-width: 1447.9px) {
+	section, footer {
+		font-size: 0.8em;
+	}
+	.reservations__block__form div {
+		width: 47%;
+	}
+	.reservations__block__form__input, .reservations__block__form__submit {
+		font-size: 1em;
+	}
+	.reservations__block__text p {
+		width: 85%;
+	}
+	.reservations__block__form {
+		width: 85%;
+	}
+}
+
+@media (max-width: 1299.9px){
+	header {
+		font-size: 0.8em;
+	}
+
+	.wrapper, .header__wrapper {
+		width: 85%;
+	}
+
+	nav {
+		margin-right: 10px;
+	}
+
+	.navigation__home:hover:before {
+		width: 63px;
+	}
+
+	.navigation__about:hover:before {
+		width: 60px;
+	}
+
+	.navigation__ingredients:hover:before {
+		width: 112px;
+	}
+
+	.navigation__menu:hover:before {
+		width: 62px;
+	}
+
+	.navigation__reviews:hover:before {
+		width: 80px;
+	}
+
+	.navigation__reservations:hover:before {
+		width: 116px;
+	}
+	#promo {
+		font-size: 0.8em;
+	}
+	.promo__buttons__button p {
+		font-size: 1em;
+	}
+	#controls{ 
+		margin: -35% 0 0 0;
+	}
+	.reservations__block__form div {
+		width: 100%;
+		display: block;
+		margin-top: 1%;
+	}
+	.reservations__block__form div p:nth-child(2) {
+		margin-bottom: 1%;
+	}
+	.reservations__block__form div p:first-child {
+		margin-bottom: 0;
+	}
+	.reservations__block__form {
+		width: 85%;
+	}
+	.reservations__block__form__input {
+		height: 20px;
+	}
+	#reviews blockquote p {
+		padding-top: 10px;
+		font-size: 0.25em;
+	} 
+}
+
+@media (min-width: 900px) and (max-width: 999.9px){
+	.wrapper, .header__wrapper {
+		width: 90%;
+	}
+	section {
+		padding-top: 50px !important; 
+	}
+	#menu {
+		padding-top: 0 !important;
+	}
+	.reservations__block__form div {
+		width: 100%;
+		display: block;
+		margin-top: 1%;
+	}
+	.reservations__block__form div p:nth-child(2) {
+		margin-bottom: 1%;
+	}
+	.reservations__block__form div p:first-child {
+		margin-bottom: 0;
+	}
+}
+
+@media (max-width: 899.9px) {
+	header {
+		font-size: 0.8em;
+	}
+
+	.hamburger-menu {
+		display: block;
+	}
+
+	nav, .social {
+		display: none;
+	}
+
+	.wrapper, .header__wrapper {
+		width: 85%;
+	}
+	section {
+		padding-top: 50px !important; 
+	}
+	#menu {
+		padding-top: 0 !important;
+	}
+	nav {
+		margin-right: 10px;
+	}
+
+	.navigation__home:hover:before {
+		width: 63px;
+	}
+
+	.navigation__about:hover:before {
+		width: 60px;
+	}
+
+	.navigation__ingredients:hover:before {
+		width: 112px;
+	}
+
+	.navigation__menu:hover:before {
+		width: 62px;
+	}
+
+	.navigation__reviews:hover:before {
+		width: 80px;
+	}
+
+	.navigation__reservations:hover:before {
+		width: 116px;
+	}
+	#promo {
+		font-size: 0.8em;
+	}
+
+	h1 {
+		font-size: 0.8em;
+	}
+
+	.promo__buttons__button {
+		font-size: 0.2em;
+	}
+	
+
+	.reservations__block__form div {
+		width: 100%;
+		display: block;
+		margin-top: 1%;
+	}
+	.reservations__block__form div p:nth-child(2) {
+		margin-bottom: 1%;
+	}
+	.reservations__block__form div p:first-child {
+		margin-bottom: 0;
+	}
+	.reservations__block__text p {
+		width: 85%;
+	}
+	.reservations__block__form {
+		width: 85%;
+	}
+	#reviews blockquote p {
+		padding-top: 10px;
+		font-size: 0.25em;
+	}
+	.about__text__cook {
+		width: 50%;
+	} 
+	.ingredients__block__images img {
+		width: 30%;
+	}
+	
+	.reservations__images {
+		width: 30%;
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+		-ms-align-items: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.reservations__images img {
+		margin-bottom: 20px;
+		min-width: 60%;
+	}
+
+	.reservations__block {
+		width: 70%;
+	}
+
+	footer {
+		font-size: 0.7em;
+	}
+}
+
+@media (max-width: 767.9px) {
+	.wrapper {
+		width: 95%;
+	}
+
+	.header__wrapper {
+		width: 90%;
+	}
+
+	h1 {
+		width: 90%;
+		font-size: 0.75em;
+		padding: 0;
+		margin: 0 auto;
+	}
+	.menu__box {
+		width: 50%;
+	}
+
+	.promo {
+		padding-bottom: 80px;
+	}
+
+	.promo__buttons {
+		width: 80%;
+	}
+
+	.promo__text {
+		padding-top: 50px;
+	}
+
+	#about {
+		font-size: 0.9em;
+		padding-top: 0 !important;
+	}
+	
+	.about .wrapper {
+		-webkit-flex-direction: column;
+		-moz-flex-direction: column;
+		-ms-flex-direction: column;
+		-o-flex-direction: column;
+		flex-direction: column;
+		-ms-align-items: center;
+		align-items: center;
+	}
+
+	.about__text, .about__image {
+		width: 100%;
+	}
+
+	.about__text__cook {
+		width: 25%;
+		margin-top: 10px;
+		margin-left: 50px;
+		margin-bottom: 70px;
+	}
+
+	.about__image {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		justify-content: center;
+	}
+
+	.about__image__dish {
+		display: none;
+	}
+
+	.ingredients__block {
+		margin: 0;
+		width: 80%;
+		font-size: 1.1em;
+	}
+
+	.ingredients__block__text {
+		width: 85%;
+	}
+
+	.ingredients__block__images {
+		margin: 30px 0;
+	}
+
+	#reviews {
+		padding-top: 40px !important;
+	}
+
+	.reviews__block {
+		width: 80%;
+	}
+
+	footer {
+		font-size: 0.6em;
+	}
+
+	.special:before {
+		padding: 0 5px;
+	}
+
+	h3 {
+		font-size: 0.22em;
+	}
+
+	[class$="__dish__ingredients"] {
+		width: 84%;
+	}
+}
+
+@media (max-width: 575.9px) {
+
+	.logo {
+		display: block;
+		width: 120px;
+		height: 100px;
+	}
+
+	.logo img {
+		width: 100%;
+	}
+
+	.menu__box {
+		width: 100%;
+	}
+
+	.menu__btn {
+		top: 34px;
+	}
+
+	h1 {
+		font-size: 0.6em;
+		margin-top: 30px;
+	}
+
+	.promo__buttons__button {
+		width: 45%;
+		margin-top: 20px;
+	}
+
+	.about__text__cook {
+		width: 30%;
+		margin-bottom: 30px;
+		margin-left: 10%;
+	}
+
+	.ingredients__block {
+		width: 98%;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	.menu .wrapper {
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flex;
+		display: -o-flex;
+		display: flex;
+		padding-top: 60px;
+		padding-bottom: 50px;
+	}
+
+	.menu .wrapper > div {
+		width: 100%;
+		padding-left: 1%;
+		padding-right: 1%;
+	}
+
+	.menu h2 {
+		margin-top: 20px;
+		font-size: 0.3em;
+	}
+
+	.reviews__block {
+		font-size: 0.8em;
+		margin-bottom: 60px;
+	}
+
+	.reviews__block__all__review {
+		margin-top: 20px;
+	}
+
+	.reservations__images {
+		display: none;
+	}
+
+	.reservations__block {
+		width: 98%;
+		margin-top: 30px;
+	}
+
+	.reservations__block__form__input {
+		height: 30px;
+	}
+
+	footer .wrapper .footer__about {
+		display: none;
+	}
+
+	.footer .wrapper .footer__opening, .footer .wrapper .footer__location {
+		width: 48%;
+	}
+
+	.footer__opening__cards, .footer__location__icons {
+		position: static;
+	}
+
+	.controls.left {
+		left: -12%;
+	}
+
+	.controls.right {
+		right: -12%;
+	}
+}
+
+@media (max-width: 409.9px) {
+	.controls.left {
+		left: -15%;
+	}
+
+	.controls.right {
+		right: -15%;
+	}
+}

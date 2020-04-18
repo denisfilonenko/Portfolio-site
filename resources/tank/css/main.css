@@ -1,0 +1,121 @@
+*{margin:0;padding:0;}
+body{-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#C3E3F4;overflow:hidden;height:100vh; cursor: none;}
+.decoration{background-repeat:no-repeat;background-size: cover; background-position: center center;width:100%}
+.field{background-image:url(../img/field.jpg); height: 100%}
+
+.target_box {
+	position:absolute;
+	left: 45vw;
+	top: 45vh;
+	width:250px;
+	height: 500px;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	cursor: none;
+}
+
+.target{
+	z-index:15;
+	width:250px;
+	height: 500px;
+	border-radius: 50%;
+	border: 5px dotted #124714;
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+
+.target_dot {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #124714;
+}
+
+.tank {
+	position: absolute;
+	top: 20vh;
+	left: 100px;
+	width: 220px;
+	height: 100px;
+	background-repeat:no-repeat;
+	background-size: 150%;
+	background-image: url(../img/tank.png);
+	background-position: -60px -45px;
+}
+
+.rotate {
+	transition: transform 3s;
+	transform: rotate(90deg);
+}
+
+.shell {
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	top: 100%;
+	z-index: 9999;
+	background-image: url(../img/shell.png);
+	background-position: center center;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	transform: rotate(90deg);
+	opacity: 0;
+}
+
+.explosion {
+	width: 200px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-image: url(../img/explosion.png);
+	position: absolute;
+	z-index: 9999;
+	opacity: 0;
+}
+
+.win {
+	opacity: 0;
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	left: calc(50% - 150px);
+	top: calc(50% - 50px);
+	z-index: 9999;
+	font-size: 30px;
+	background-color: rgba(0, 0, 0, 0.6);
+	border: 1px solid #fff;
+	color: #fff;
+	border-radius: 5px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.info {
+	position: absolute;
+	top: 0;
+	left: calc(38%);
+	font-size: 16px;
+	background-color: rgba(0, 0, 0, .6);
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	-ms-align-items: center;
+	align-items: center;
+	padding: 10px;
+	color: #fff;
+	border: 1px solid #fff;
+	letter-spacing: 1.2px;
+}

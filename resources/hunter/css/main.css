@@ -1,0 +1,35 @@
+*{margin:0;padding:0;}
+body{-webkit-box-sizing:border-box;box-sizing:border-box;background-color:#C3E3F4;overflow:hidden;height:100vh;}
+.decoration{background-repeat:no-repeat;background-size:100% 100%;background-position:left 0 top 0;width:100%}
+.sea{background-image:url(../img/sea.jpg);height:100vh;bottom:0;z-index:10}
+.rock{position:absolute;background-image:url(../img/rock_01.png);height:80vh;bottom:-80px;width:20%;z-index:15}
+#rockLeft{left:0px;background-position:left 100% top 100%;background-size:170% 100%}
+#rockRight{right:0px;background-position:right 100% top 0;background-size:300% 100%}
+.ship{position:absolute;background-image:url(../img/ship_00.png);background-repeat:no-repeat;background-size:100%;z-index:12;bottom:23vh;left:40%;width:450px;height:110px;padding:0}
+.ship .badaBUM{display:none;position:absolute;background-image:url(../img/bach_01.png);background-repeat:no-repeat;background-size:100%;z-index:15;bottom:20px;left:0;width:450px;height:401px}
+.target{position:absolute;background-image:url(../img/target_00.png);background-repeat:no-repeat;background-size:100%;z-index:15;bottom:0;left:calc(50% - 70px);width:140px;height:140px;cursor:none}
+.gun{width:60px;height:80px;position:absolute;bottom:0;left:calc(50% - 30px);z-index:16;background-image:url(../img/gun_00.png);background-repeat:no-repeat;background-size:100%;background-position:0 0}
+.shell{display:none;width:25px;height:75px;position:absolute;bottom:0;left:calc(50% - 25px);z-index:17;background-image:url(../img/shell_01.png);background-repeat:no-repeat;background-size:100%;background-position:0 0;-webkit-transform-origin:left 50% top 0;-ms-transform-origin:left 50% top 0;transform-origin:left 50% top 0}
+.explosion{display:none;width:100px;height:100px;position:absolute;bottom:0;left:150px;z-index:18;background-image:url(../img/bach_00.png);background-repeat:no-repeat;background-size:100%;background-position:0 0}
+
+.bird {position: absolute; z-index: 10; background-size: 100%; background-repeat: no-repeat; width: 200px; height: 200px; left: 0; top: 0;}
+#bird1 {background-image: url(../img/birds/gull.png);}
+#bird2 {background-image: url(../img/birds/duck.png);}
+#bird3 {background-image: url(../img/birds/eagle.png);}
+#bird4 {background-image: url(../img/birds/albatross.png);}
+.buttons {position: absolute; top: 5px; left: calc(50% - 250px);}
+button {width: 250px; height: 50px; border-radius: 5px; border: 3px solid #fff; background-color: #000; color: #fff; font-weight: bold; cursor: pointer;}
+span {color: red;}
+
+#win {
+	position: absolute;
+	width: 300px;
+	background-color: #000;
+	color: #fff;
+	border: 3px solid #fff;
+	border-radius: 10px;
+	top: calc(50% - 50px);
+	left: calc(50% - 200px);
+	text-align: center;
+	padding: 50px;	
+}
