@@ -1,6 +1,21 @@
+screen.orientation.lock('landscape');
+
+function preload() {
+    let preloader = $('#preloader');
+    preloader.css('visibility', 'hidden');
+}
+
+setTimeout(preload, 300);
+
 // #home animation
 
-$('.menu a[data-file="index.html"]').addClass("active");
+$('.menu a[data-file="index.html"]').addClass("active expand");
+$('.menu a').mouseenter(function(){
+    $('.active').removeClass('expand');
+})
+$('.menu a').mouseleave(function(){
+    $('.active').addClass('expand');
+})
 
 let check = 0;
 let sectionWidth = $("#home").width();
@@ -9,7 +24,7 @@ let startAnimateMenu = function() {
    $(".menu").stop().animate({
     left: 0
 }, 500);
-   $("#home").css("transform", "perspective(" + sectionWidth + ") rotateY(-25deg) ").css("transition-duration", ".5s");
+   $("#home").css("transform", "perspective(" + sectionWidth + ") rotateY(-30deg) ").css("transition-duration", ".5s");
    $(".menu_btn_center").animate({
     width: "45%",
     top: "13px",
@@ -21,9 +36,15 @@ let startAnimateMenu = function() {
    $(".menu_btn_bottom").css("transform", "rotate(90deg)").css("width", "100%").css('bottom', '4px').css('left', '-3px');
 }
 let endAnimateMenu = function() {
-    $(".menu").stop().animate({
-        left: -menuWidth + 50 + 'px'
-    }, 500);
+    if ($(window).height() < 550) {
+        $(".menu").stop().animate({
+            left: -menuWidth + 'px'
+        }, 500);
+    } else {
+        $(".menu").stop().animate({
+            left: -menuWidth + 50 + 'px'
+        }, 500);
+    }
     $("#home").css("transform", "none").css("transition-duration", ".5s");
     $(".menu_btn_center").animate({
         width: "100%",
@@ -35,13 +56,14 @@ let endAnimateMenu = function() {
     }, 0);  
     $(".menu_btn_bottom").css("transform", "rotate(0)").css("width", "100%").css('bottom', '0').css('left', '0');
 }
+let menuCounter = 0;
 $("aside").mouseenter(function () {   
     startAnimateMenu();
 })
 $("aside").mouseleave(function () {
     endAnimateMenu();
+    menuCounter = 0;
 })
-let menuCounter = 0;
 $(".menu_btn").click(function() {
     menuCounter++;
     if(menuCounter == 1) {
@@ -53,14 +75,18 @@ $(".menu_btn").click(function() {
 })
 
 
+
 $('body').css('overflow', 'hidden hidden');
 
     // load pages
 
-    $(".menu a").click( function () {
-        if ($(this).data("file") === undefined) return false;
-        loadPage($(this).data("file"));
-        return false;
+    $(".menu a").on('click', function () {
+      if ($(this).data("file") === undefined) return false;
+      loadPage($(this).data("file"));
+      menuCounter = 0;
+      endAnimateMenu();
+      window.scrollTo(0, 0);
+      return false;
     });    
 
     function loadPage (file) {
@@ -74,27 +100,27 @@ $('body').css('overflow', 'hidden hidden');
                 $("main").html(data);
                 switch (file) {
                     case "index.html": {
-                        $(".menu a").removeClass("active");
+                        $(".menu a").removeClass("active expand");
                         animateHome();
-                        $('.menu a[data-file="index.html"]').addClass("active");
+                        $('.menu a[data-file="index.html"]').addClass("active expand");
                         break;
                     }
                     case "about.html": {
-                        $(".menu a").removeClass("active");
+                        $(".menu a").removeClass("active expand");
                         animateAbout();
-                        $('.menu a[data-file="about.html"]').addClass("active");
+                        $('.menu a[data-file="about.html"]').addClass("active expand");
                         break;
                     }
                     case "portfolio.html": {
-                        $(".menu a").removeClass("active");
+                        $(".menu a").removeClass("active expand");
                         animatePortfolio();
-                        $('.menu a[data-file="portfolio.html"]').addClass("active");
+                        $('.menu a[data-file="portfolio.html"]').addClass("active expand");
                         break;
                     }
                     case "contacts.html": {
-                        $(".menu a").removeClass("active");
+                        $(".menu a").removeClass("active expand");
                         animateContacts();                        
-                        $('.menu a[data-file="contacts.html"]').addClass("active");
+                        $('.menu a[data-file="contacts.html"]').addClass("active expand");
                     }
                 }
                 $("#preloader").css('visibility', 'hidden');
@@ -109,10 +135,16 @@ $('body').css('overflow', 'hidden hidden');
 function animateHome() {
     $("nav").css('cursor', 'default');
     $("nav a").css('cursor', 'pointer');
-    $('body').css('overflow', 'hidden hidden');
+    $("body").css('overflow', 'hidden hidden');
 }
 
 function animateAbout () {
+
+    $("#preloader").css('visibility', 'visible');
+    $(document).ready(function(){
+        $("#preloader").css('visibility', 'hidden');
+    })
+
 
     $(".about_box").animate({
         opacity: 0
@@ -122,187 +154,8 @@ function animateAbout () {
         opacity: 1
     }, 1200);
 
-    let width, height, largeHeader, canvas, ctx, points, target, animateHeader = true;
 
-    // Main
-    initHeader();
-    initAnimation();
-    addListeners();
 
-    function initHeader() {
-    	width = window.innerWidth;
-    	height = window.innerHeight;
-    	target = {x: width/2, y: height/2};
-
-    	largeHeader = document.getElementById('about');
-        largeHeader.style.height = height+'px';
-
-        canvas = document.getElementById('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        ctx = canvas.getContext('2d');
-
-        // create points
-        points = [];
-        for(let x = 0; x < width; x = x + width/20) {
-        	for(let y = 0; y < height; y = y + height/20) {
-        		let px = x + Math.random()*width/20;
-        		let py = y + Math.random()*height/20;
-        		let p = {x: px, originX: px, y: py, originY: py };
-        		points.push(p);
-        	}
-        }
-
-        // for each point find the 5 closest points
-        for(let i = 0; i < points.length; i++) {
-        	let closest = [];
-        	let p1 = points[i];
-        	for(let j = 0; j < points.length; j++) {
-        		let p2 = points[j]
-        		if(!(p1 == p2)) {
-        			let placed = false;
-        			for(let k = 0; k < 5; k++) {
-        				if(!placed) {
-        					if(closest[k] == undefined) {
-        						closest[k] = p2;
-        						placed = true;
-        					}
-        				}
-        			}
-
-        			for(let k = 0; k < 5; k++) {
-        				if(!placed) {
-        					if(getDistance(p1, p2) < getDistance(p1, closest[k])) {
-        						closest[k] = p2;
-        						placed = true;
-        					}
-        				}
-        			}
-        		}
-        	}
-        	p1.closest = closest;
-        }
-
-        // assign a circle to each point
-        for(let i in points) {
-        	let c = new Circle(points[i], 2+Math.random()*2, 'rgba(255,255,255,0.3)');
-        	points[i].circle = c;
-        }
-    }
-
-    // Event handling
-    function addListeners() {
-    	if(!('ontouchstart' in window)) {
-    		window.addEventListener('mousemove', mouseMove);
-    	}
-    	window.addEventListener('scroll', scrollCheck);
-    	window.addEventListener('resize', resize);
-    }
-
-    function mouseMove(e) {
-    	let posx = posy = 0;
-    	if (e.pageX || e.pageY) {
-    		posx = e.pageX;
-    		posy = e.pageY;
-    	}
-    	else if (e.clientX || e.clientY)    {
-    		posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
-    		posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
-    	}
-    	target.x = posx;
-    	target.y = posy;
-    }
-
-    function scrollCheck() {
-    	if(document.body.scrollTop > height) animateHeader = false;
-    	else animateHeader = true;
-    }
-
-    function resize() {
-    	width = window.innerWidth;
-    	height = window.innerHeight;
-    	largeHeader.style.height = height+'px';
-    	canvas.width = width;
-    	canvas.height = height;
-    }
-
-    // animation
-    function initAnimation() {
-    	animate();
-    	for(let i in points) {
-    		shiftPoint(points[i]);
-    	}
-    }
-
-    function animate() {
-    	if(animateHeader) {
-    		ctx.clearRect(0,0,width,height);
-    		for(let i in points) {
-                // detect points in range
-                if(Math.abs(getDistance(target, points[i])) < 4000) {
-                	points[i].active = 0.3;
-                	points[i].circle.active = 0.6;
-                } else if(Math.abs(getDistance(target, points[i])) < 20000) {
-                	points[i].active = 0.1;
-                	points[i].circle.active = 0.3;
-                } else if(Math.abs(getDistance(target, points[i])) < 40000) {
-                	points[i].active = 0.02;
-                	points[i].circle.active = 0.1;
-                } else {
-                	points[i].active = 0;
-                	points[i].circle.active = 0;
-                }
-
-                drawLines(points[i]);
-                points[i].circle.draw();
-            }
-        }
-        requestAnimationFrame(animate);
-    }
-
-    function shiftPoint(p) {
-       TweenLite.to(p, 1+1*Math.random(), {x:p.originX-10+Math.random()*20,
-        y: p.originY-10+Math.random()*20, ease:Circ.easeInOut,
-        onComplete: function() {
-         shiftPoint(p);
-     }});
-   }
-
-    // Canvas manipulation
-    function drawLines(p) {
-    	if(!p.active) return;
-    	for(let i in p.closest) {
-    		ctx.beginPath();
-    		ctx.moveTo(p.x, p.y);
-    		ctx.lineTo(p.closest[i].x, p.closest[i].y);
-    		ctx.strokeStyle = 'rgba(156,217,249,'+ p.active+')';
-    		ctx.stroke();
-    	}
-    }
-
-    function Circle(pos,rad,color) {
-    	let _this = this;
-
-        // constructor
-        (function() {
-        	_this.pos = pos || null;
-        	_this.radius = rad || null;
-        	_this.color = color || null;
-        })();
-
-        this.draw = function() {
-        	if(!_this.active) return;
-        	ctx.beginPath();
-        	ctx.arc(_this.pos.x, _this.pos.y, _this.radius, 0, 2 * Math.PI, false);
-        	ctx.fillStyle = 'rgba(156,217,249,'+ _this.active+')';
-        	ctx.fill();
-        };
-    }
-
-    // Util
-    function getDistance(p1, p2) {
-    	return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
-    }
 
     // Slider
     $(".slider").slick({
@@ -324,12 +177,20 @@ function animateAbout () {
 
     // Tag cloud
     const myTags = [
-    'images/html.png', 'images/CSS3.png', 'images/js.png', 'images/jquery.png', 
+    'images/cordova.png','images/webpack.png','images/firebase.png', 'images/yarn.png', 'images/npm.png', 'images/node.png', 'images/flutter.png', 'images/html.png', 'images/CSS3.png', 'images/js.png', 'images/jquery.png', 
     'images/bootstrap4.png', 'images/sass.png', 'images/git.png',
-    'images/ajax.png', 'images/json.png', 'images/vue.png',
+    'images/ajax.png', 'images/vue.png', 'images/php.png', 'images/react.png'
     ];
+    let sphereHeight = $('section').height() / 3.5;
+    let sphereWidth = $('section').width() / 4;
+    let sphereRad = 0;
+    if (sphereWidth < sphereHeight) {
+        sphereRad = sphereWidth;
+    } else {
+        sphereRad = sphereHeight;
+    }
     let tagCloud = TagCloud('.tagCloud', myTags, {
-    	radius: 300,
+    	radius: sphereRad,
     	maxSpeed: 'normal',
     	initSpeed: 'normal',
     	direction: 120,
@@ -442,7 +303,8 @@ function animatePortfolio () {
             return;
         } else {
             $(".codeExamples").append(data);
-            $("#btnLoadMoreProjects ~ div").show(0, function() {
+            let elClass = $(data).attr('class');
+            $("#btnLoadMoreProjects ~ ." + elClass).show(0, function() {
                 animateProject(this);
                 $(this).animate({
                     opacity: 0
@@ -513,26 +375,51 @@ function checkAnswer(data) {
         $(".thank_box").css('opacity', 1).css('z-index', 3);
         $('.okButton').on('click', function(){
             $(".thank_box").css('opacity', 0).css('z-index', 0);
+            clearForm();
         });
     }
 }
 
+function clearForm() {
+    $("#name").val('');
+    $("#phone").val('');
+    $("#email").val('');
+    $("#message").val('');
+}
+
+function errPrompt (el) {
+    $(el).addClass("err");
+}
+
+$(document).on('input', function(ev) {
+    $(ev.target).removeClass('err');
+    $(ev.target).next('label').text('');
+})
+
 function validateForm() {
     if ($("#name").val() == "") {
-        $("#name + label").text("Напишите Ваше имя!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#name + label").text("Enter your name!");
+        errPrompt("#name");
         return;
     }
 
     let nameVal = /[a-z]{2,30}$/i;
     let myName = $("#name").val();
     let validName = nameVal.test(myName);
+
     if(validName == false) {
-        $("#name + label").text("Напишите Ваше имя!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#name + label").text("Enter correct name!");
+        errPrompt("#name");
         return;
     }
 
+    $("#name").keyup(function() {
+
+    })
+
     if ($("#phone").val() == "") {
-        $("#phone + label").text("Напишите Ваш номер телефона!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#phone + label").text("Enter your phone number!");
+        errPrompt("#phone");
         return;
     }
 
@@ -540,12 +427,14 @@ function validateForm() {
     let myPhone = $("#phone").val();
     let validPhone = phoneVal.test(myPhone);
     if(validPhone == false) {
-        $("#phone + label").text("Номер телефона введен неправильно!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#phone + label").text("Phone number is entered incorrectly!");
+        errPrompt("#phone");
         return;
     }
 
     if ($("#email").val() == "") {
-        $("#email + label").text("Напишите Ваш e-mail!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#email + label").text("Enter your email!");
+        errPrompt("#email");
         return;
     }
 
@@ -553,18 +442,47 @@ function validateForm() {
     let myMail = $("#email").val();
     let validEmail = emailVal.test(myMail);
     if (validEmail == false) {
-        $("#email + label").text("Введите корректный E-mail типа name@mail.com!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#email + label").text("Enter a valid email like name@mail.com!");
+        errPrompt("#email");
         return;
     }
 
     if ($("#message").val() == "") {
-        $("#message + label").text("Напишите Ваше сообщение!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#message + label").text("Enter your message!");
+        errPrompt("#message");
         return;
     }
     if ($("#message").val().length < 5) {
-        $("#message + label").text("Длинна сообщения должна быть не менее 5 символов!").css('width', '100%').css('bottom', '0').css('border', '1px solid #c91616').css('height', 'auto').css('background-color', 'transparent');
+        $("#message + label").text("Message length must be at least 5 symbols!");
+        errPrompt("#message");
         return;
     }    
 
     sendForm();
+}
+
+
+// translator
+
+const translationRu = {
+    home: {
+        name: {
+            firstName: "Денис",
+            lastName: "Филоненко"
+        },
+        head: "Front-end разработчик"
+    },
+    about: {
+        head2: "Обо мне",
+        aboutBox: {
+            head3: "Приветствую! Меня зовут Денис.",
+            text1: "Около года я занимаюсь интенсивным обучением в сфере Front-end азработки. Испытываю огромный интерес к данной сфере и хочу связать с ней дальнейшую деятельность. В данный момент заканчиваю обучение в компьютерной академии ШАГ. Профессионального опыта пока не имею, но стремлюсь постоянно улушать свои навыки и осваивать новые. Умею работать в команде, легко нахожу общий язык с коллективом, обладаю чувством вкуса.",
+            text2: "Нахожусь в поиске места работы, которое позволит мне начать профессиональную карьеру Front-end разработчика.",
+            button: "РЕЗЮМЕ"
+        },
+        skillsBox: {
+            
+        }
+        
+    }
 }

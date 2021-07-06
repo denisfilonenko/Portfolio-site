@@ -1,0 +1,69 @@
+body {
+	background-image: url(../img/table.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+
+#gamePad {
+	width: 900px;
+	margin-top: 80px;
+}
+
+#gamePad div div {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: center;
+}
+
+#gamePad div div div {
+	width: 100%;
+	height: 320px;
+	margin: 10px auto;
+	margin-top: 20px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+	display: flex;
+}
+
+.close {
+	background-image: url("../img/rubaxa.png");
+}
+
+.card1 {
+	background-image: url("../img/card1.png");
+}
+.card2 {
+	background-image: url("../img/card2.png");
+}
+.card3 {
+	background-image: url("../img/card3.png");
+}
+.card4 {
+	background-image: url("../img/card4.png");
+}
+
+.col-sm-12 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+button {
+	width: 100px;
+	margin-right: 20px;
+	margin-left: 20px;
+	border-radius: 10px;
+	background-color: #000000;
+	color: #ffffff;
+	font-weight: 500;
+}
+
+button:hover {
+	background-color: #ffffff;
+	color: #000000;
+}
+

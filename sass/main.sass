@@ -1,3 +1,12 @@
+*
+  -moz-user-select: none
+  -o-user-select:none
+  -khtml-user-select: none
+  -webkit-user-select: none
+  -ms-user-select: none
+ 	user-select: none
+
+
 %section
 	width: 100vw
 	min-height: 100vh
@@ -42,6 +51,8 @@ body
 	position: relative
 	background-color: #000
 
+main
+	overflow-x: hidden
 
 ::-webkit-scrollbar
 	width: 5px
@@ -115,9 +126,11 @@ nav
 				font-family: Geometria
 				width: 100%
 				padding: 30px
+				padding-left: 20px
+				transition-duration: 300ms
 				span
 					position: relative
-				span::after
+				span::after, span::before 
 					content: ""
 					display: block
 					position: absolute
@@ -126,25 +139,65 @@ nav
 					right: 70%
 					height: 2px
 					background-color: #fff
-			.active
-  			span::after
-    			left: 0
-    			right: 0
-			a:hover
+					-webkit-animation: 200ms linear alternate forwards lineBack
+    			animation: 200ms linear alternate forwards lineBack
 				span::after
-					-webkit-animation: 300ms linear forwards lineMove
-    			animation: 300ms linear forwards lineMove
+					bottom: -10px
+				span::before
+					top: -10px
+			.expand
+				letter-spacing: .3em
+				span::after, span::before
+					-webkit-animation: 300ms linear alternate forwards lineMove
+    			animation: 300ms linear alternate forwards lineMove
+			a:hover
+				letter-spacing: .3em
+				transition-duration: 300ms
+				span::after, 
+				span::before
+					-webkit-animation: 300ms linear alternate forwards lineMove
+    			animation: 300ms linear alternate forwards lineMove
+
+.copiright
+	color: #fff
+	font-size: 10px
+	font-family: Geometria
+	position: absolute
+	bottom: 0
+	left: 0
 
 @-webkit-keyframes lineMove
+	0%
+		left: 70%
+		right: 70%
 	100%
 		left: 0
-		right: 0
+		right: 7px
 
 @keyframes lineMove
+	0%
+		left: 70%
+		right: 70%
 	100%
 		left: 0
-		right: 0
+		right: 7px
 
+
+@-webkit-keyframes lineBack
+	0%
+		left: 0
+		right: 7px
+	100%
+		left: 70%
+		right: 70%
+
+@keyframes lineBack
+	0%
+		left: 0
+		right: 7px
+	100%
+		left: 70%
+		right: 70%
 
 
 #preloader 
@@ -156,24 +209,41 @@ nav
   top: 0
   width: 100%
   z-index: 9999
-  visibility: hidden
+  visibility: visible
   .colorlib-load 
-    -webkit-animation: 1000ms linear 0s normal none infinite running colorlib-load
-    animation: 1000ms linear 0s normal none infinite running colorlib-load
+    height: 70px
+    left: calc(50% - 35px)
+    top: calc(50% - 35px)
+    width: 70px
     background: transparent none repeat scroll 0 0
-    border-color: #fff #fff #0d283b
-    border-radius: 50%
-    border-style: solid
-    border-width: 3px
-    height: 40px
-    left: calc(50% - 20px)
-    position: relative
-    top: calc(50% - 20px)
-    width: 40px
+   	border: 4px solid #000
+   	border-radius: 50%
+   	overflow: hidden
+   	filter: blur(.5px)
+   	box-shadow: -5px -5px 5px rgba(255, 255, 255, .1), 10px -10px 10px rgba(0, 0, 0, .4), inset -5px -5px 5px rgba(255, 255, 255, .2), inset 10px -10px 10px rgba(0, 0, 0, .4)
+   	position: relative
+   	span
+   		z-index: -1
+  		position: absolute
+  		border-radius: 50%
+  		background: linear-gradient(#2de2e6, #023788, #000)
+  		animation: animate-preloader .7s linear infinite
+ 	.colorlib-load:before
+  	content: ''
+  	position: absolute
+  	z-index: 10
+  	top: 20%
+  	right: 20%
+  	left: 20%
+  	bottom: 20%
+  	background: #000
+  	border-radius: 50%
+  	border: 2px solid #000
+  	box-shadow: inset -2px -2px 5px rgba(255, 255, 255, .2), inset 3px -3px 5px rgba(0, 0, 0, .4)
 
 
 
-@-webkit-keyframes colorlib-load 
+@-webkit-keyframes animate-preloader
   0% 
     -webkit-transform: rotate(0deg)
     transform: rotate(0deg)
@@ -184,7 +254,7 @@ nav
     
 
 
-@keyframes colorlib-load 
+@keyframes animate-preloader 
   0% 
     -webkit-transform: rotate(0deg)
     transform: rotate(0deg)
@@ -194,6 +264,32 @@ nav
     transform: rotate(360deg)
     
 
+#rotate_screen
+	position: absolute
+	width: 100%
+	height: 100%
+	display: none
+	justify-content: center
+	align-items: center
+	background-color: #000
+	z-index: 9999
+
+	.rotate_box
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		img
+			height: 50px
+			width: 50px
+		p
+			color: #fff
+			font-family: Geometria
+	
 
 
 				
@@ -230,6 +326,8 @@ nav
 				text-align: left
 			.last_name
 				text-align: right
+			.last_name::first-letter
+				margin-right: 25px
 			.marg
 				margin-right: 30px
 		h1
@@ -266,9 +364,9 @@ nav
 	justify-content: flex-start
 	align-items: flex-start
 	font-family: Geometria
-	height: 100vh
+	height: auto
 	.container
-		width: 900px
+		width: 60%
 		margin: 0 auto
 		display: -webkit-flex
 		display: -moz-flex
@@ -287,19 +385,18 @@ nav
 			display: -ms-flex
 			display: -o-flex
 			display: flex
-			align-items: center
-			overflow: hidden
+			overflow: visible
+			flex-direction: row-reverse
 			.about_box_text
+				width: 70%
 				display: -webkit-flex
 				display: -moz-flex
 				display: -ms-flex
 				display: -o-flex
 				display: flex
 				flex-direction: column
-				align-items: center
-				width: 50%
 				padding: 3%
-				p, h3
+				p, h3, a
 					@extend %text
 					align-self: flex-start
 				h3
@@ -324,11 +421,16 @@ nav
 					box-shadow: 0 0 6px 1px #fff
 					cursor: url(../images/cursor.png) 15 15, auto
 			.about_box_photo
-				width: 50%
+				width: 30%
+				padding-top: 5%
 				img
-					height: 540px
+					max-width: auto
+					height: 45vh
+					display: block
+					margin: 0 auto
 					margin-bottom: -4px
 					opacity: .8
+					border-radius: 4px
 		.skills_box
 			display: -webkit-flex
 			display: -moz-flex
@@ -336,6 +438,7 @@ nav
 			display: -o-flex
 			display: flex		
 			justify-content: flex-end
+			overflow: visible
 			.skills_text
 				width: 50%
 				padding: 10px 30px
@@ -362,6 +465,7 @@ nav
 				display: flex
 				justify-content: center
 				padding: 0 20px
+				overflow: visible
 				
 
 
@@ -369,13 +473,23 @@ nav
 	width: 100%
 	height: auto
 .tagcloud--item
-	width: 50px
+	height: 50px
 	img
-		width: 100%
+		height: auto
+		max-height: 100%
+		max-width: 100px
 
+.slick-slider .slick-track 
+	display: flex
+	-ms-align-items: center
+	align-items: center
 
 canvas
 	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
 
 
 
@@ -391,9 +505,10 @@ canvas
 	display: flex
 	flex-direction: column
 	align-items: center
-	margin-bottom: 100px
+	padding-bottom: 100px
 	height: auto
 	min-height: 100vh
+	padding-left: 4%
 	h2
 		@extend %h2
 		margin-bottom: 50px
@@ -412,8 +527,11 @@ canvas
 		grid-template-columns: 1fr 1fr 1fr
 		margin-bottom: 70px
 		position: relative
+		.taxiua
+			background-size: auto 100%
+			background-image: url("../images/taxiuaapp.png"), linear-gradient(#273585, #12172b) !important
 		div
-			height: 270px
+			height: 25vh
 			margin: 20px
 			position: relative
 			opacity: .9
@@ -598,6 +716,19 @@ canvas
 					box-sizing: border-box
 				input:focus + label, textarea:focus + label
 					width: 100%
+				.err + label
+					display: block
+					position: absolute
+					bottom: 0
+					left: 0
+					width: 100%
+					height: auto
+					background-color: transparent
+					transition-duration: 0s
+					font-size: 12px
+					color: #c91616
+					box-sizing: border-box
+					border: 1px solid #c91616
 			button
 				padding: 9px 30px
 				width: 20%
@@ -631,6 +762,7 @@ canvas
 			display: -o-flex
 			display: flex
 			justify-content: space-between
+			margin-top: 10px
 			img
 				width: 25px
 				vertical-align: top

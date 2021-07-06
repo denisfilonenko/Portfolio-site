@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Practice 4</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<button onclick="showCards(); return false"> Show </button>
+			<button onclick="hideCards(); return false"> Hide </button>
+		</div>
+	</div>
+</div>
+
+	<div class="container" id="gamePad">
+		<div class="row">
+			<div class="col-sm-3"><div id="card00" class="close"  onclick="toggleCard(0,0)"></div></div>
+			<div class="col-sm-3"><div id="card01" class="close" onclick="toggleCard(0,1)"></div></div>
+			<div class="col-sm-3"><div id="card02" class="close"  onclick="toggleCard(0,2)"></div></div>
+			<div class="col-sm-3"><div id="card03" class="close"  onclick="toggleCard(0,3)"></div></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-3"><div id="card10" class="close" onclick="toggleCard(1,0)"></div></div>
+			<div class="col-sm-3"><div id="card11" class="close" onclick="toggleCard(1,1)"></div></div>
+			<div class="col-sm-3"><div id="card12" class="close"  onclick="toggleCard(1,2)"></div></div>
+			<div class="col-sm-3"><div id="card13" class="close"  onclick="toggleCard(1,3)"></div></div>
+		</div>
+
+	</div>
+	<script src="js/jQery_3.4.1.js"></script>
+	<script type="text/javascript" src="js/my.js"></script>
+</body>
+</html>
